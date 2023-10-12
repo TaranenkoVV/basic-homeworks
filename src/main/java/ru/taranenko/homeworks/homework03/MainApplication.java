@@ -131,7 +131,7 @@ public class MainApplication {
     }
 
     public static void addOrSubtractAndPrint(int initValue, int delta, boolean increment) {
-        int result = 0;
+        int result;
         System.out.println("\n5) Метод addOrSubtractAndPrint:");
 
         System.out.println("initValue = " + initValue);
