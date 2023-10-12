@@ -143,7 +143,6 @@ public class MainApplication {
         } else {
             result = initValue - delta;
         }
-
         System.out.println("Результат = " + result);
     }
 }
