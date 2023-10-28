@@ -155,18 +155,12 @@ public class MainApplication {
         //вывод двумерного массива в консоль
         printArray(arr);
 
-        //обработка массива
+        //обнуление диагоналей массива
         for (int row = 0; row < arr.length; row++) {
-            for (int col = 0; col < arr[0].length; col++) {
-                //обнуление диагональных элементов
-                if (row == col) {
-                    arr[row][col] = 0;
-                } else {
-                    if ((row + col) == arr.length - 1) {
-                        arr[row][col] = 0;
-                    }
-                }
-            }
+            //главная диагональ
+            arr[row][row] = 0;
+            //побочная диагональ
+            arr[row][arr.length - row - 1] = 0;
         }
     }
 
