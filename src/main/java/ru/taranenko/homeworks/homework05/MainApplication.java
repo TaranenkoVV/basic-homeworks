@@ -56,27 +56,33 @@ public class MainApplication {
     public static void simpleMode() {
         Random random = new Random();
 
-        //01
-        method01(3, "HomeWork05");
+        // 01 - метод, принимающий в качестве аргументов целое число и строку,
+        // и печатающий в консоль строку указанное количество раз.
+        printLine(3, "HomeWork05");
 
-        //02
+        // 02 - метод, принимающий в качестве аргумента целочисленный массив,
+        // суммирующий все элементы, значение которых больше 5,
+        // и печатающий полученную сумму в консоль;
         int[] arr2 = new int[10];
         for (int i = 0; i < arr2.length - 1; i++) {
             arr2[i] = random.nextInt(10);
         }
-        method02(arr2);
+        calcSumItems(arr2);
 
-        //03
+        // 03 метод, принимающий в качестве аргументов целое число и ссылку на целочисленный массив,
+        // метод должен заполнить каждую ячейку массива указанным числом;
         int[] arr3 = new int[10];
-        method03(3, arr3);
+        fillArray(3, arr3);
         System.out.println(Arrays.toString(arr3));
 
-        //04
-        method04(5, arr3);
+        // 04 - метод, принимающий в качестве аргументов целое число и ссылку на целочисленный массив,
+        // увеличивающий каждый элемент массива на указанное число;
+        addNumberToItems(5, arr3);
         System.out.println(Arrays.toString(arr3));
 
-        //05
-        method05(arr2);
+        // 05 - метод, принимающий в качестве аргумента целочисленный массив,
+        // и печатающий в консоль информацию о том, сумма элементов какой из половин массива больше;
+        compareSumItems(arr2);
     }
 
     /**
@@ -86,7 +92,7 @@ public class MainApplication {
      * @param count
      * @param str
      */
-    public static void method01(int count, String str) {
+    public static void printLine(int count, String str) {
         System.out.println();
         System.out.println("Метод 1");
         System.out.println("-------");
@@ -98,12 +104,13 @@ public class MainApplication {
     }
 
     /**
-     * метод, принимающий в качестве аргумента целочисленный массив, суммирующий все элементы, значение которых больше
-     * 5, и печатающий полученную сумму в консоль;
+     * метод, принимающий в качестве аргумента целочисленный массив,
+     * суммирующий все элементы, значение которых больше 5,
+     * и печатающий полученную сумму в консоль;
      *
      * @param arr
      */
-    private static void method02(int[] arr) {
+    private static void calcSumItems(int[] arr) {
         int sum = 0;
 
         System.out.println();
@@ -121,13 +128,13 @@ public class MainApplication {
     }
 
     /**
-     * метод, принимающий в качестве аргумента целочисленный массив, суммирующий все элементы, значение которых больше
-     * 5, и печатающий полученную сумму в консоль;
+     * метод, принимающий в качестве аргументов целое число и ссылку на целочисленный массив, метод должен заполнить
+     * каждую ячейку массива указанным числом;
      *
      * @param value
      * @param arr
      */
-    private static void method03(int value, int[] arr) {
+    private static void fillArray(int value, int[] arr) {
         System.out.println();
         System.out.println("Метод 3");
         System.out.println("-------");
@@ -140,13 +147,13 @@ public class MainApplication {
     }
 
     /**
-     * метод, принимающий в качестве аргументов целое число и ссылку на целочисленный массив, увеличивающий каждый
-     * элемент массива на указанное число;
+     * метод, принимающий в качестве аргументов целое число и ссылку на целочисленный массив,
+     * увеличивающий каждый элемент массива на указанное число;
      *
      * @param value
      * @param arr
      */
-    private static void method04(int value, int[] arr) {
+    private static void addNumberToItems(int value, int[] arr) {
         System.out.println();
         System.out.println("Метод 4");
         System.out.println("-------");
@@ -159,12 +166,13 @@ public class MainApplication {
     }
 
     /**
-     * метод, принимающий в качестве аргумента целочисленный массив, и печатающий в консоль информацию о том, сумма
-     * элементов какой из половин массива больше;
+     * метод, принимающий в качестве аргумента целочисленный массив,
+     * и печатающий в консоль информацию о том,
+     * сумма элементов какой из половин массива больше;
      *
      * @param arr5
      */
-    private static void method05(int[] arr5) {
+    private static void compareSumItems(int[] arr5) {
         int sum1 = 0;
         int sum2 = 0;
         int indexMiddle = 0;
@@ -196,23 +204,28 @@ public class MainApplication {
      * ДЗ со звездочкой
      */
     public static void hardMode() {
-        //01
+        // 01 - метод, принимающий на вход набор целочисленных массивов,
+        // и получающий новый массив равный сумме входящих;
         int[] arr11 = {1, 2, 3};
         int[] arr12 = {2, 2};
         int[] arr13 = {1, 1, 1, 1, 1};
-        methodHard01(arr11, arr12, arr13);
+        calcSumItemsSeveralArrays(arr11, arr12, arr13);
 
-        //02
+        // 02 - метод, проверяющий что есть “точка” в массиве,
+        // в которой сумма левой и правой части равны.
         int[] arr21 = {1, 1, 1, 1, 1, 5};
         int[] arr22 = {5, 3, 4, -2};
         int[] arr23 = {7, 2, 2, 2};
         int[] arr24 = {9, 4};
-        methodHard02(arr21);
-        methodHard02(arr22);
-        methodHard02(arr23);
-        methodHard02(arr24);
+        int[] arr25 = {10, 1, 3, 6};
+        findEqualSumsPoint(arr21);
+        findEqualSumsPoint(arr22);
+        findEqualSumsPoint(arr23);
+        findEqualSumsPoint(arr24);
+        findEqualSumsPoint(arr25);
 
-        //03
+        // 03 - метод, проверяющий что все элементы массива идут в порядке убывания
+        // или возрастания (по выбору пользователя)
         int[] arr31 = {10, 8, 6, 4, 5, 7, 9};
         int[] arr32 = {4, 5, 7, 9, 10, 12, 14};
         int[] arr33 = {10, 8, 6, 4, 3, 2, 1};
@@ -220,9 +233,11 @@ public class MainApplication {
         methodHard03(arr32);
         methodHard03(arr33);
 
-        //04
+        // 04 - метод, “переворачивающий” входящий массив
         int[] arr41 = {10, 8, 6, 4, 5, 7, 9};
-        methodHard04(arr41);
+        reverseArray(arr41);
+
+        System.out.println("Результат:");
         System.out.println("\t" + Arrays.toString(arr41));
     }
 
@@ -233,41 +248,36 @@ public class MainApplication {
      * @param arr2
      * @param arr3
      */
-    private static void methodHard01(int[] arr1, int[] arr2, int[] arr3) {
+    private static void calcSumItemsSeveralArrays(int[]... arrays) {
 
         System.out.println();
         System.out.println("Метод 1* - новый массив равен сумме входящих массивов");
         System.out.println("-------");
         System.out.println("Параметры: ");
-        System.out.println("\t" + Arrays.toString(arr1));
-        System.out.println("\t" + Arrays.toString(arr2));
-        System.out.println("\t" + Arrays.toString(arr3));
-        System.out.println("Результат:");
+        for (int i = 0; i < arrays.length; i++) {
+            System.out.println(Arrays.toString(arrays[i]));
+        }
 
+        //поиск массива с максимальным количеством элементов maxSize
         int maxSize = 0;
-
-        maxSize = arr1.length;
-        if (maxSize < arr2.length) {
-            maxSize = arr2.length;
-        }
-        if (maxSize < arr3.length) {
-            maxSize = arr3.length;
-        }
-
-        int[] sumArr = new int[maxSize];
-
-        for (int i = 0; i < sumArr.length; i++) {
-            if (i < arr1.length) {
-                sumArr[i] += arr1[i];
-            }
-            if (i < arr2.length) {
-                sumArr[i] += arr2[i];
-            }
-            if (i < arr3.length) {
-                sumArr[i] += arr3[i];
+        for (int i = 0; i < arrays.length; i++) {
+            if (maxSize < arrays[i].length) {
+                maxSize = arrays[i].length;
             }
         }
-        System.out.println("\t" + Arrays.toString(sumArr));
+
+        //создание результирующего массива размером maxSize
+        int[] resultArray = new int[maxSize];
+
+        //сумма элементов массивов
+        for (int i = 0; i < arrays.length; i++) {
+            for (int j = 0; j < arrays[i].length; j++) {
+                resultArray[j] += arrays[i][j];
+            }
+        }
+
+        System.out.println("Результат:");
+        System.out.println(Arrays.toString(resultArray));
     }
 
     /**
@@ -275,7 +285,7 @@ public class MainApplication {
      *
      * @param arr
      */
-    private static void methodHard02(int[] arr) {
+    private static void findEqualSumsPoint(int[] arr) {
 
         System.out.println();
         System.out.println("Метод 2* - поиск точки массива, в которой сумма левой и правой части равны.");
@@ -332,15 +342,6 @@ public class MainApplication {
         boolean isDescending = true;
         boolean isAscending = true;
 
-        if (mode == 1) {
-            //проверка на убывание элементов
-            isDescending = true;
-        }
-        if (mode == 2) {
-            //проверка на возрастание элементов
-            isAscending = true;
-        }
-
         int value = arr[0];
         for (int i = 0; i < arr.length; i++) {
             if (mode == 1) {
@@ -388,14 +389,14 @@ public class MainApplication {
      *
      * @param arr
      */
-    private static void methodHard04(int[] arr) {
+    private static void reverseArray(int[] arr) {
         System.out.println();
         System.out.println("Метод 4* - переворачивание массива");
         System.out.println("-------");
         System.out.println("Параметры: ");
         System.out.println("\t" + Arrays.toString(arr));
-        System.out.println("Результат:");
 
+        // перестановка элементов во входящем массиве
         int j = arr.length - 1;
         for (int i = 0; i < j; i++, j--) {
             int temp = arr[i];
