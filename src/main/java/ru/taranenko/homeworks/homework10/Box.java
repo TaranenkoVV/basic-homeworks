@@ -5,18 +5,17 @@ import java.util.Scanner;
 public class Box {
 
     private String color;
-    private int width;
-    private int height;
+    private final int width;
+    private final int height;
     private boolean isOpened;
     private String someObject;
     private static final String EMPTY_BOX = "<пусто>";
     private static final String OBJECT_IN_BOX = "<Объект>";
-    private boolean isEmpty;
 
     /**
      * Перекрасить коробку
      */
-    public void setNewColorBox(String color) {
+    public void setNewColor(String color) {
         this.color = color;
         System.out.print("Коробку перекрасили в новый цвет: " + this.color);
         System.out.println();
@@ -39,7 +38,7 @@ public class Box {
     /**
      * Открыть коробку
      */
-    public void openBox() {
+    public void open() {
         if (isOpened) {
             System.out.println("Коробка уже открыта!");
         } else {
@@ -51,7 +50,7 @@ public class Box {
     /**
      * Закрыть коробку
      */
-    public void closeBox() {
+    public void close() {
         if (!isOpened) {
             System.out.println("Коробка уже закрыта!");
         } else {
@@ -63,15 +62,13 @@ public class Box {
     /**
      * Положить объект в коробку
      */
-    public void putObjectInBox() {
+    public void putObject() {
         if (!isOpened) {
             System.out.println("Не могу положить Объект в коробку, коробка закрыта!");
-        //} else if (!isEmpty) {
         } else if (!someObject.equals(EMPTY_BOX)) {
             System.out.println("Не могу положить Объект в коробку, в коробка уже лежит предмет!");
         } else {
             someObject = OBJECT_IN_BOX;
-            isEmpty = false;
             System.out.println("Объект положили в коробку.");
         }
     }
@@ -79,15 +76,13 @@ public class Box {
     /**
      * Выкинуть объект из коробки
      */
-    public void popObjectFromBox() {
+    public void popObject() {
         if (!isOpened) {
             System.out.println("Не могу выкинуть Объект из коробки, коробка закрыта!");
-        //} else if (isEmpty) {
         } else if (someObject.equals(EMPTY_BOX)) {
             System.out.println("Не могу выкинуть Объект из коробки, коробка пустая!");
         } else {
             someObject = EMPTY_BOX;
-            isEmpty = true;
             System.out.println("Объект выкинули из коробки.");
         }
     }
@@ -95,7 +90,7 @@ public class Box {
     /**
      * Вывод информации о коробке в консоль.
      */
-    public void printBoxInfo() {
+    public void printInfo() {
         System.out.println("Информация о коробке:");
         System.out.println("Цвет  : " + color);
         System.out.println("Ширина: " + width);
@@ -107,13 +102,6 @@ public class Box {
         } else {
             System.out.println("закрыта.");
         }
-
-        //System.out.print("Наличие предмета в коробке: ");
-        //if (isEmpty) {
-        //    System.out.println("пусто");
-        //} else {
-        //    System.out.println("предмет внутри.");
-        //}
 
         System.out.println("Наличие предмета в коробке: " + someObject);
     }

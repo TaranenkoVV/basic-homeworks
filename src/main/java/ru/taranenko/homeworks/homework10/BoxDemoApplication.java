@@ -30,22 +30,22 @@ public class BoxDemoApplication {
 
                 // Открыть коробку
                 case 1:
-                    box.openBox();
+                    box.open();
                     break;
 
                 // Закрыть коробку
                 case 2:
-                    box.closeBox();
+                    box.close();
                     break;
 
                 // Положить в коробку предмет
                 case 3:
-                    box.putObjectInBox();
+                    box.putObject();
                     break;
 
                 // Выкинуть из коробки предмет
                 case 4:
-                    box.popObjectFromBox();
+                    box.popObject();
                     break;
 
                 // Перекрасить коробку
@@ -54,12 +54,12 @@ public class BoxDemoApplication {
                     System.out.print("Введите новый цвет коробки: ");
                     newColor = scanner.nextLine();
 
-                    box.setNewColorBox(newColor);
+                    box.setNewColor(newColor);
                     break;
 
                 // Вывод информации о коробке
                 case 6:
-                    box.printBoxInfo();
+                    box.printInfo();
                     break;
 
                 default:
