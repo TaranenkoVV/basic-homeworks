@@ -3,6 +3,7 @@ package ru.taranenko.homeworks.homework10;
 import java.util.Scanner;
 
 public class MainApplication {
+    private final static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         int mode;
@@ -59,56 +60,8 @@ public class MainApplication {
      * Работа с классом Box
      */
     private static void workWithBox() {
-        Box box = new Box("Серый", 30, 20);
-
-        int task;
-        boolean isWorking;
-
-        isWorking = true;
-        while (isWorking) {
-            task = box.getOperationWithBox();
-
-            switch (task) {
-                // выход
-                case 0:
-                    isWorking = false;
-                    break;
-
-                // Открыть коробку
-                case 1:
-                    box.openBox();
-                    break;
-
-                // Закрыть коробку
-                case 2:
-                    box.closeBox();
-                    break;
-
-                // Положить в коробку предмет
-                case 3:
-                    box.putObjectInBox();
-                    break;
-
-                // Выкинуть из коробки предмет
-                case 4:
-                    box.popObjectFromBox();
-                    break;
-
-                // Перекрасить коробку
-                case 5:
-                    box.setNewColorBox();
-                    break;
-
-                // Вывод информации о коробке
-                case 6:
-                    box.printBoxInfo();
-                    break;
-
-                default:
-                    System.out.println("Неизвестное действие: " + task);
-                    break;
-            }
-        }
+        BoxDemoApplication boxDemo = new BoxDemoApplication();
+        boxDemo.workWithBox();
     }
 
     /**

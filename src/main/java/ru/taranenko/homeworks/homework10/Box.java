@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Box {
 
-    private Scanner scanner = new Scanner(System.in);
     private String color;
     private int width;
     private int height;
@@ -12,6 +11,16 @@ public class Box {
     private String someObject;
     private static final String EMPTY_BOX = "<пусто>";
     private static final String OBJECT_IN_BOX = "<Объект>";
+    private boolean isEmpty;
+
+    /**
+     * Перекрасить коробку
+     */
+    public void setNewColorBox(String color) {
+        this.color = color;
+        System.out.print("Коробку перекрасили в новый цвет: " + this.color);
+        System.out.println();
+    }
 
     /**
      * Конструктор
@@ -26,30 +35,6 @@ public class Box {
         this.someObject = EMPTY_BOX;
     }
 
-    /**
-     * Список действий с коробкой
-     * @return
-     */
-    public static int getOperationWithBox() {
-        Scanner scanner = new Scanner(System.in);
-        int operation = -1;
-        System.out.println();
-        System.out.println("Выполните действие с коробкой:");
-        System.out.println("1. Открыть коробку");
-        System.out.println("2. Закрыть коробку");
-        System.out.println("3. Положить в коробку предмет");
-        System.out.println("4. Выкинуть из коробки предмет");
-        System.out.println("5. Перекрасить коробку");
-        System.out.println("6. Вывод информации о коробке");
-        System.out.println("0. Выход");
-        System.out.println();
-
-        while (operation < 0 || operation > 6) {
-            System.out.print("Введите номер действия от 1 до 6 (0 для выхода): ");
-            operation = scanner.nextInt();
-        }
-        return operation;
-    }
 
     /**
      * Открыть коробку
@@ -81,10 +66,12 @@ public class Box {
     public void putObjectInBox() {
         if (!isOpened) {
             System.out.println("Не могу положить Объект в коробку, коробка закрыта!");
-        } else if (someObject != EMPTY_BOX) {
+        //} else if (!isEmpty) {
+        } else if (!someObject.equals(EMPTY_BOX)) {
             System.out.println("Не могу положить Объект в коробку, в коробка уже лежит предмет!");
         } else {
             someObject = OBJECT_IN_BOX;
+            isEmpty = false;
             System.out.println("Объект положили в коробку.");
         }
     }
@@ -95,24 +82,14 @@ public class Box {
     public void popObjectFromBox() {
         if (!isOpened) {
             System.out.println("Не могу выкинуть Объект из коробки, коробка закрыта!");
-        } else if (someObject == EMPTY_BOX) {
+        //} else if (isEmpty) {
+        } else if (someObject.equals(EMPTY_BOX)) {
             System.out.println("Не могу выкинуть Объект из коробки, коробка пустая!");
         } else {
             someObject = EMPTY_BOX;
+            isEmpty = true;
             System.out.println("Объект выкинули из коробки.");
         }
-    }
-
-    /**
-     * Перекрасить коробку
-     */
-    public void setNewColorBox() {
-        String newColor;
-        System.out.print("Введите новый цвет коробки: ");
-        newColor = scanner.nextLine();
-        this.color = newColor;
-        System.out.print("Коробку перекрасили в новый цвет: " + this.color);
-        System.out.println();
     }
 
     /**
@@ -131,6 +108,13 @@ public class Box {
             System.out.println("закрыта.");
         }
 
-        System.out.println("Наличие предмета: " + someObject);
+        //System.out.print("Наличие предмета в коробке: ");
+        //if (isEmpty) {
+        //    System.out.println("пусто");
+        //} else {
+        //    System.out.println("предмет внутри.");
+        //}
+
+        System.out.println("Наличие предмета в коробке: " + someObject);
     }
 }
