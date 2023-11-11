@@ -12,9 +12,6 @@ public class Horse extends Animal{
         this.swimmingEnduranceCost = 4;
         // общая выносливость животного
         this.overallEndurance = endurance;
-
-        this.canRun = true;
-        this.canSwim = true;
     }
 
     public void taskSwimming(int distance) {
@@ -35,31 +32,5 @@ public class Horse extends Animal{
         System.out.println("\tЗадание для коня: " + name + ". Пробежать " + distance + " метров.");
         time = this.run(distance);
         this.info();
-    }
-
-    /**
-     * Расчет времени затраченного на БЕГ на дистанцию distance.
-     *
-     * @param distance
-     * @return time
-     */
-    @Override
-    public int run(int distance) {
-        int time;
-        time = super.run(distance);
-        return time;
-    }
-
-    /**
-     * Расчет времени затраченного на ПЛАВАНИЕ на дистанцию distance.
-     *
-     * @param distance
-     * @return time
-     */
-    @Override
-    public int swimming(int distance) {
-        int time;
-        time = super.swimming(distance);
-        return time;
     }
 }

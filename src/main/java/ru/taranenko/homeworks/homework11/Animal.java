@@ -20,11 +20,6 @@ public class Animal {
     // затраты выносливости в плавании
     protected int swimmingEnduranceCost;
 
-    // умеет ли животное плавать
-    protected boolean canSwim;
-    // умеет ли животное бегать
-    protected boolean canRun;
-
     public String getName() {
         return name;
     }
@@ -45,9 +40,7 @@ public class Animal {
      * @return requiredEndurance
      */
     public int calcRequiredEndurance(int distance, int enduranceCost) {
-        int requiredEndurance;
-        requiredEndurance = distance * enduranceCost;
-        return requiredEndurance;
+        return distance * enduranceCost;
     }
 
     public int animalIsTired() {
@@ -65,13 +58,10 @@ public class Animal {
      * @return time
      */
     public int calcTimeToDistance(int distance, int speed){
-        int time;
         if (speed == 0) {
-            time = 0;
-        } else {
-            time = (int) distance / speed;
+            return  0;
         }
-        return time;
+        return (int) distance / speed;
     }
 
     /**
@@ -117,7 +107,7 @@ public class Animal {
     public int run(int distance) {
         int time;
 
-        if(!canRun){
+        if(runningSpeed == 0){
             System.out.println("\tЖивотное " + name + " не умеет бегать.");
             time = 0;
             return time;
@@ -142,7 +132,7 @@ public class Animal {
     public int swimming(int distance) {
         int time;
 
-        if(!canSwim){
+        if(swimmingSpeed == 0){
             System.out.println("\tЖивотное " + name + " не умеет плавать.");
             time = 0;
             return time;

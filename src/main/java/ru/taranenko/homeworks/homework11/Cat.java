@@ -12,9 +12,6 @@ public class Cat extends Animal {
         this.swimmingEnduranceCost = -1;
         // общая выносливость животного
         this.overallEndurance = endurance;
-
-        this.canRun = true;
-        this.canSwim = false;
     }
 
     public void taskSwimming(int distance) {
@@ -37,29 +34,4 @@ public class Cat extends Animal {
         this.info();
     }
 
-    /**
-     * Расчет времени затраченного на БЕГ на дистанцию distance.
-     *
-     * @param distance
-     * @return time
-     */
-    @Override
-    public int run(int distance) {
-        int time;
-        time = super.run(distance);
-        return time;
-    }
-
-    /**
-     * Расчет времени затраченного на ПЛАВАНИЕ на дистанцию distance.
-     *
-     * @param distance
-     * @return time
-     */
-    @Override
-    public int swimming(int distance) {
-        int time;
-        time = super.swimming(distance);
-        return time;
-    }
 }
