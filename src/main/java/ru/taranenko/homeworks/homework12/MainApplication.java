@@ -10,7 +10,7 @@ public class MainApplication {
     public static void main(String[] args) {
         title();
 
-        Plate plate = new Plate(100);
+        Plate plate = new Plate(102);
         Cat[] cat = new Cat[10];
 
         // Заполнение массива с котами
@@ -19,12 +19,13 @@ public class MainApplication {
         System.out.println("Количество еды в тарелке перед кормлением котов: " + plate.getCurrentFood());
 
         //покормить котов из тарелки plate
+        System.out.println("\nКормление котов:");
         feedingCats(cat, plate);
 
-        System.out.println("Состояние котов после кормления");
+        System.out.println("\nСостояние котов после кормления");
         printCatsInfo(cat, plate);
 
-        System.out.println("Количество еды в тарелке после кормления котов: " + plate.getCurrentFood());
+        System.out.println("\nКоличество еды в тарелке после кормления котов: " + plate.getCurrentFood());
     }
 
     /**
@@ -51,7 +52,7 @@ public class MainApplication {
         cat[5] = new Cat("Кот-06", 10);
         cat[6] = new Cat("Кот-07", 10);
         cat[7] = new Cat("Кот-08", 15);
-        cat[8] = new Cat("Кот-09", 10);
+        cat[8] = new Cat("Кот-09", 30);
         cat[9] = new Cat("Кот-10", 5);
     }
 
@@ -62,6 +63,10 @@ public class MainApplication {
         for (int i = 0; i < cat.length; i++) {
             cat[i].eat(plate);
         }
+
+        System.out.print("\nПопытка накормить первых двух котов еще раз.\n");
+        cat[0].eat(plate);
+        cat[1].eat(plate);
     }
 
     /**
