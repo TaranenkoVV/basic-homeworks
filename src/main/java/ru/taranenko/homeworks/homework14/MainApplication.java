@@ -1,5 +1,4 @@
 package ru.taranenko.homeworks.homework14;
-
 import java.util.Random;
 
 public class MainApplication {
