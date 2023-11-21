@@ -1,3 +1,5 @@
+package ru.taranenko.homeworks.homework14;
+
 public class AppArraySizeException extends RuntimeException{
     private String format;
     public String getFormat() {
